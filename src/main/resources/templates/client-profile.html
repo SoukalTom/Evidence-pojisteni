@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="cs-cz" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pojištění Soukal</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script th:src="@{/js/confirm-query.js}" defer="defer"></script>
+    <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+</head>
+
+<body>
+    <header th:insert="~{/common/header}"></header>
+
+
+    <main>
+
+        <div class="client-container">
+            <img th:src="@{/img/basic-profile-picture.webp}" alt="Klient">
+            <div>
+                <h2 th:text="${client.name + ' ' + client.surname}"></h2>
+                <div class="client-info-container">
+                    <div>
+                        <p th:text="${client.street}"></p>
+                        <p th:text="${client.city}"></p>
+                        <p th:text="${client.psc}"></p>
+                    </div>
+                    <div>
+                        <p th:text="${client.email}"></p>
+                        <p th:text="${client.phoneNumber}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="table-outer">
+            <table class="blueTable">
+                <thead>
+                    <tr>
+                        <th>Číslo smlouvy</th>
+                        <th>Pojištění</th>
+                        <th>Předmět</th>
+                        <th>Částka</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <td colspan="5">
+                            <div class="link-container">
+                                <div>
+                                    <span class="links"><a class="links" id="new-client"
+                                            th:href="@{/pojisteni/novy(id=${client.id})}">Přidat pojištění</a></span>
+                                    <a class="btn-edit-client" id="edit-client"
+                                        th:href="@{/pojistenci/klient/edit/{id}(id=${client.id})}">Upravit
+                                        pojištěnce</a>
+                                    <button class="btn-delete-client" id="delete-client"
+                                        th:onclick="'confirmDelete(' + ${client.id} + ')'">Odstranit pojištěnce</button>
+                                    <form th:action="@{/pojistenci/klient/delete/{id}(id=${client.id})}" method="post"
+                                        th:id="'delete-client-form-' + ${client.id}"></form>
+                                </div>
+
+                                <span class="links">
+                                    <a href="#">&laquo;</a>
+                                    <a class="active" href="#">1</a>
+                                    <a href="#">2</a>
+                                    <a href="#">3</a>
+                                    <a href="#">4</a>
+                                    <a href="#">&raquo;</a>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr th:each="insurance : ${allInsurance}">
+                        <td><a class="insurance-name" th:text="${insurance.id}"
+                                th:href="@{/pojisteni/{id}(id=${insurance.id})}"></a></td>
+                        <td th:text="${insurance.name}"></td>
+                        <td th:text="${insurance.subjectOfInsurance}"></td>
+                        <td th:text="${insurance.sum}"></td>
+                        <td class="client-btn-container">
+                            <a class="btn-edit" th:href="@{/pojisteni/edit(idInsurance=${insurance.id})}">Upravit</a>
+                            <button class="btn-delete"
+                                th:onclick="'confirmInsuranceDelete(' + ${insurance.id} + ')'">Odstranit</button>
+                        </td>
+                        <form
+                            th:action="@{'/pojisteni/delete?idInsurance=' + ${insurance.id} + '&idClient=' + ${client.id}}"
+                            method="post" th:id="'delete-insurance-form-' + ${insurance.id}"></form>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer th:insert="~{/common/footer}"></footer>
+</body>
+
+</html>

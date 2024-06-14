@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="cs-cz" xmlns:th="">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pojištění Soukal</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+<header th:insert="~{/common/header}"></header>
+<main>
+
+        <span class="new-insurance-h1">
+            <h1 th:text="'Nové pojištění pro: ' + ${client.name} + ' ' + ${client.surname}"></h1>
+        </span>
+
+    <form class="new-clinet-form" th:action="@{/pojisteni/novy(id=${client.id})}" method="post">
+        
+        <div class="new-insurance-container">
+            <div class="new-insurance-input">
+                <label>Druh pojištění</label>
+                <select th:field="${insurance.name}">
+                    <option value="Životní pojištění">Životní pojištění</option>
+                    <option value="Pojištění majetku">Pojištění majetku</option>
+                    <option value="Úrazové pojištění">Úrazové pojištění</option>
+                    <option value="Pojištění proti krádeži">Pojištění proti krádeži</option>
+                    <option value="Pojištění vozidla">Pojištění vozidla</option>
+                </select>
+            </div>
+            <div class="new-insurance-input">
+                <label>Částka</label>
+                <input type="text" id="insuranceSum" name="insuranceSum" required th:field="${insurance.sum}">
+            </div>
+            <div class="new-insurance-input">
+                <label>Předmět pojištění</label>
+                <input type="text" id="insuranceSubject" name="insuranceSubject" required th:field="${insurance.subjectOfInsurance}">
+            </div>
+            <div class="new-insurance-input">
+                <label>Platnost od</label>
+                <input type="date" id="validityFrom" name="validityFrom" required th:field="${insurance.validFrom}">
+            </div>
+            <div class="new-insurance-input">
+                <label>Platnost do</label>
+                <input type="date" id="validityTo" name="validityTo" required th:field="${insurance.validTo}">
+            </div>
+        </div>
+
+        <div>
+            <button class="new-client-add" type="submit">Uložit</button>
+        </div>
+    </form>
+
+
+</main>
+
+<footer th:insert="~{/common/footer}"></footer>
+</body>
+
+</html>

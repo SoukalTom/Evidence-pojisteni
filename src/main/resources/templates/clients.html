@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="cs-cz" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pojištění Soukal</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script th:src="@{/js/confirm-query.js}" defer="defer"></script>
+    <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+    <script th:src="@{/js/clickable-row.js}"></script>
+</head>
+
+<body>
+    <header th:insert="~{/common/header}"></header>
+
+    <main>
+        <span class="clients-h1">
+            <h1>Pojištěnci</h1>
+        </span>
+
+        <div class="table-outer">
+            <table class="blueTable">
+                <thead>
+                    <tr>
+                        <th>Jméno</th>
+                        <th>Bydliště</th>
+                        <th>Telefon</th>
+                        <th>Email</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <td colspan="5">
+                            <div class="link-container">
+                                <span class="links"><a id="new-client" href="/pojistenci/novy">Nový pojištěnec</a></span>
+                                <span class="links">
+                                    <a href="#">&laquo;</a>
+                                    <a class="active" href="#">1</a>
+                                    <a href="#">2</a>
+                                    <a href="#">3</a>
+                                    <a href="#">4</a>
+                                    <a href="#">&raquo;</a>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr th:each="client : ${allClients}">
+                        <td><a class="client-name" th:text="${client.name + ' ' + client.surname}" th:href="@{/pojistenci/klient/{id}(id=${client.id})}"></a></td>
+                        <td th:text="${client.street + ', ' + client.city}"></td>
+                        <td th:text="${client.phoneNumber}"></td>
+                        <td th:text="${client.email}"></td>
+                        <td class="client-btn-container">
+                            <a class="btn-edit" th:href="@{/pojistenci/klient/edit/{id}(id=${client.id})}">Upravit</a>
+                            <form th:action="@{/pojistenci/klient/delete/{id}(id=${client.id})}" method="post" th:id="'delete-client-form-' + ${client.id}"></form>
+                            <button class="btn-delete" th:onclick="'confirmDelete(' + ${client.id} + ')'">Odstranit</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+    </main>
+
+    <footer th:insert="~{/common/footer}"></footer>
+</body>
+
+</html>

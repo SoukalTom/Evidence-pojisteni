@@ -1,0 +1,403 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    color: #535353;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+.header-container {
+    color: azure;
+    background-color: rgba(84, 84, 117, 0.911);
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 30px;
+
+}
+
+@media only screen and (max-width: 768px) {
+    .login-container {
+        display: none;
+    }
+
+    .nav-container ul {
+        flex-direction: column;
+    }
+
+    .nav-container ul li {
+        padding: 5px;
+    }
+}
+
+.text-logo {
+    padding: 20px 30px;
+    color: azure;
+}
+
+.nav-container ul {
+    display: flex;
+}
+
+.nav-container li,
+.login-container {
+    list-style-type: none;
+    padding: 20px;
+}
+
+header a {
+    text-decoration: none;
+    color: azure;
+}
+
+.login-container a {
+    padding: 10px;
+}
+
+.main-img {
+    background-image: url(https://images.pexels.com/photos/7731330/pexels-photo-7731330.jpeg);
+    width: 100%;
+    min-height: 500px;
+    background-position: 0px -500px;
+    background-size: cover;
+
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px;
+}
+
+.main-container1,
+.main-container2 {
+    max-width: 1000px;
+    width: 100%;
+    padding: 50px;
+    background-color: rgba(212, 212, 212, 0.432);
+    margin: 40px;
+}
+
+main h2 {
+    color: rgba(84, 84, 117, 0.911);
+    letter-spacing: 0.04em;
+    padding: 0px 0px 20px 0px;
+    font-size: 1.7rem;
+}
+
+main p {
+    padding: 0px 0px 10px 0px;
+    line-height: 1.4rem;
+
+}
+
+main li {
+    list-style-position: inside;
+}
+
+main li::marker {
+    color: rgba(84, 84, 117, 0.911);
+}
+
+main a {
+    text-decoration: none;
+    color: black;
+}
+
+footer {
+    width: 100%;
+    background-color: rgba(39, 39, 39, 0.856);
+    padding: 20px 0px;
+    text-align: center;
+}
+
+.bottom-text {
+    color: azure;
+    font-size: 0.9rem;
+}
+
+
+/* TABULKA CSS */
+
+.table-outer {
+    overflow-x: scroll;
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 920px) {
+    .table-outer {
+        justify-content: start;
+    }
+}
+
+table.blueTable {
+    max-width: 1200px;
+    min-width: 800px;
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    line-height: 30px;
+    
+}
+
+table.blueTable td {
+    width: 20%;
+
+}
+
+table.blueTable td,
+table.blueTable th {
+    border: 0px solid #AAAAAA;
+    padding: 3px 2px;
+}
+
+.client-name,
+.insurance-name {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+table.blueTable tbody td {
+    font-size: 13px;
+}
+
+table.blueTable tr:nth-child(even) {
+    background: rgba(178, 178, 236, 0.39);
+}
+
+table.blueTable thead {
+    background: rgba(84, 84, 117, 0.911);
+}
+
+table.blueTable thead th {
+    font-size: 15px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: left;
+    border-left: 1px solid #D0E4F5;
+}
+
+table.blueTable thead th:first-child {
+    border-left: none;
+}
+
+table.blueTable tfoot,
+button {
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+table.blueTable tfoot td {
+    font-size: 14px;
+}
+
+table.blueTable tfoot .links {
+    text-align: right;
+}
+
+table.blueTable tfoot .links a,
+.btn-delete-client,
+.btn-edit-client {
+    text-shadow: 1px 1px 3px #666666;
+    display: inline-block;
+    color: #FFFFFF;
+    padding: 2px 8px;
+    border-radius: 5px;
+    border: 0px;
+}
+
+.btn-delete-client,
+.btn-edit-client {
+    line-height: 30px;
+    cursor: pointer;
+}
+
+table.blueTable tfoot .links a {
+    background: rgba(84, 84, 117, 0.911);
+}
+
+.link-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.client-btn-container {
+    display: flex;
+    gap: 10px;
+}
+
+
+
+/* button css */
+
+.btn-delete,
+.btn-edit {
+    -webkit-border-radius: 5;
+    -moz-border-radius: 5;
+    border: 0px;
+    border-radius: 5px;
+    text-shadow: 1px 1px 3px #666666;
+    font-family: Arial;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 14px;
+    padding: 8px 10px 8px 10px;
+    text-decoration: none;
+    line-height: normal;
+}
+
+.new-client-add {
+    min-width: 130px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    background-color: rgba(84, 84, 117, 0.911);
+    box-shadow: 0 3px 1px -2px #ccc, 0 2px 2px 0 #ccc, 0 1px 5px 0 #ccc;
+}
+
+.btn-delete,
+.btn-delete-client {
+    background: #d93434;
+}
+
+.btn-edit,
+.btn-edit-client {
+    background: #e4ca3a;
+}
+
+.btn-delete:hover {
+    background: #c03030;
+    text-decoration: none;
+}
+
+.btn-edit:hover {
+    background: #bda626;
+    text-decoration: none;
+}
+
+/* Pojištěnci stránka css */
+
+.clients-h1,
+.new-client-h1, 
+.new-insurance-h1 {
+    max-width: 1200px;
+    width: 100%;
+    font-size: 0.8rem;
+    text-align: start;
+    padding: 20px 0px;
+    color: #292929;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: underline;
+}
+
+.new-client-input,
+.new-insurance-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.new-clinet-form {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.new-client-input label,
+.new-insurance-input label {
+    padding-bottom: 12px;
+}
+
+.new-client-container,
+.new-insurance-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 30px;
+}
+
+@media only screen and (max-width: 900px) {
+    .new-client-container,
+    .new-insurance-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.new-client-container input,
+.new-insurance-container input,
+.new-insurance-input select {
+    font-size: 18px;
+    padding: 12px 6px;
+    width: 300px;
+    outline: none;
+    background: #FFFFFF;
+    color: #000000;
+    border: 1px solid #d6c4eb;
+    border-radius: 5px;
+    box-shadow: 3px 3px 2px 0px #E2E2E2;
+    transition: .3s ease;
+}
+
+.new-client-container input:focus, 
+.new-insurance-container input:focus,
+.new-insurance-input select:focus {
+    background: #F2F2F2;
+    border: 1px solid rgba(84, 84, 117, 0.911);
+    border-radius: 10px;
+}
+
+.new-insurance-input select {
+    width: 314px;
+}
+
+
+/* Client profile css */
+.client-container img {
+    max-width: 150px;
+    max-height: 150px;
+}
+
+.client-container {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    gap: 50px;
+    margin-bottom: 50px;
+}
+
+.client-info-container {
+    display: flex;
+    gap: 300px;
+}
+
+@media only screen and (max-width: 900px) {
+    .client-info-container {
+        flex-direction: column;
+        gap: 0px;
+    }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="cs-cz" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pojištění Soukal</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script th:src="@{/js/confirm-query.js}" defer="defer"></script>
+</head>
+
+<body>
+<header th:insert="~{/common/header}"></header>
+
+
+<main>
+
+    <div class="insurance-container">
+        <div>
+            <h2 th:text="${insurance.client.name + ' ' + insurance.client.surname}">Jméno klienta</h2>
+            <div class="client-info-container">
+                <div>
+                    <p th:text="${insurance.name}">Jméno pojištění</p>
+                    <p th:text="${insurance.sum}">Částka</p>
+                    <p th:text="${insurance.subjectOfInsurance}">Předmět pojištění</p>
+                </div>
+                <div>
+                    <p th:text="'Od: ' + ${#temporals.format(insurance.validFrom, 'dd.MM.yyyy')}">Od</p>
+                    <p th:text="'Do: ' + ${#temporals.format(insurance.validTo, 'dd.MM.yyyy')}">Do</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<footer th:insert="~{/common/footer}"></footer>
+</body>
+
+</html>

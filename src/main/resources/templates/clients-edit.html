@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="cs-cz" xmlns:th="">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pojištění Soukal</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+<header th:insert="~{/common/header}"></header>
+<main>
+
+        <span class="new-client-h1">
+            <h1 th:text="'Edit pojištěnece s id: ' + ${client.id}"></h1>
+        </span>
+
+    <form class="new-clinet-form" th:action="@{/pojistenci/klient/edit/ulozit/{id}(id=${client.id})}" method="post">
+        <div class="new-client-container">
+            <div class="new-client-input">
+                <label>Jméno</label>
+                <input type="text" id="clientNewName" name="clientNewName" required th:field="${client.name}">
+            </div>
+            <div class="new-client-input">
+                <label>Příjmení</label>
+                <input type="text" id="clientNewSurname" name="clientNewSurname" required th:field="${client.surname}">
+            </div>
+            <div class="new-client-input">
+                <label>Email</label>
+                <input type="email" id="clientNewEmail" name="clientNewEmail" required th:field="${client.email}">
+            </div>
+            <div class="new-client-input">
+                <label>Telefon</label>
+                <input type="text" id="clientNewPhoneNumber" name="clientNewPhoneNumber" required th:field="${client.phoneNumber}">
+            </div>
+            <div class="new-client-input">
+                <label>Ulice a číslo popisné</label>
+                <input type="text" id="clientNewStreet" name="clientNewStreet" required th:field="${client.street}">
+            </div>
+            <div class="new-client-input">
+                <label>Město</label>
+                <input type="text" id="clientNewCity" name="clientNewCity" required th:field="${client.city}">
+            </div>
+            <div class="new-client-input">
+                <label>PSČ</label>
+                <input type="text" id="clientNewPsc" name="clientNewPsc" required th:field="${client.psc}">
+            </div>
+
+
+        </div>
+
+        <div>
+            <button class="new-client-add" type="submit">Uložit</button>
+        </div>
+    </form>
+
+
+</main>
+
+<footer th:insert="~{/common/footer}"></footer>
+</body>
+
+</html>
